@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Productos | MYT Express Admin</title>
+  <meta name="robots" content="noindex, nofollow">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="../css/admin-panel.css">
+  <link rel="stylesheet" href="../css/admin-productos.css">
+</head>
+<body class="admin-body">
+
+  <!-- ==================== PANEL ==================== -->
+  <div class="panel">
+
+    <!-- Sidebar -->
+    <aside class="panel__sidebar">
+      <div class="panel__sidebar-logo">
+        <img src="../assets/logo.png" alt="MYT Express" class="panel__sidebar-img">
+        <span class="panel__sidebar-nombre">MYT Express</span>
+      </div>
+
+      <nav class="panel__sidebar-nav">
+        <a href="panel.html" class="panel__sidebar-link">
+          📊 Dashboard
+        </a>
+        <a href="productos.html" class="panel__sidebar-link panel__sidebar-link--activo">
+          📦 Productos
+        </a>
+        <a href="pedidos.html" class="panel__sidebar-link">
+          🛒 Pedidos
+        </a>
+        <a href="../index.html" class="panel__sidebar-link">
+          🏪 Ver tienda
+        </a>
+      </nav>
+
+      <button class="panel__sidebar-logout" id="btnLogout">
+        🚪 Cerrar sesión
+      </button>
+    </aside>
+
+    <!-- Contenido -->
+    <main class="panel__contenido">
+
+      <header class="panel__header">
+        <div>
+          <h1 class="panel__titulo">Gestionar Productos</h1>
+          <p class="panel__subtitulo">Agrega, edita o elimina productos</p>
+        </div>
+      </header>
+
+      <!-- Formulario -->
+      <form class="admin-form" id="formProducto">
+        <div class="admin-form__fila">
+          <div class="campo">
+            <label class="campo__label">Nombre *</label>
+            <input class="campo__input" type="text" id="nombre" placeholder="Ej: Cerveza Pilsen" required>
+          </div>
+          <div class="campo">
+            <label class="campo__label">Categoría *</label>
+            <input class="campo__input" type="text" id="categoria" placeholder="cervezas, vinos, destilados" required>
+          </div>
+        </div>
+        <div class="admin-form__fila">
+          <div class="campo">
+            <label class="campo__label">Precio (S/) *</label>
+            <input class="campo__input" type="number" id="precio" step="0.01" placeholder="25.00" required>
+          </div>
+          <div class="campo">
+            <label class="campo__label">Stock *</label>
+            <input class="campo__input" type="number" id="stock" placeholder="20" required>
+          </div>
+        </div>
+        <div class="campo">
+          <label class="campo__label">URL de imagen</label>
+          <input class="campo__input" type="text" id="imagen_url" placeholder="https://ejemplo.com/foto.jpg">
+        </div>
+        <div class="campo">
+          <label class="campo__label">Descripción</label>
+          <textarea class="campo__input" id="descripcion" rows="3" placeholder="Descripción corta del producto..."></textarea>
+        </div>
+        <button type="submit" class="admin-form__btn">Guardar producto</button>
+      </form>
+
+      <!-- Lista de productos -->
+      <div class="admin-lista" id="listaProductos"></div>
+
+    </main>
+
+  </div>
+
+  <!-- JS -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="../js/config.js"></script>
+  <script src="../js/supabase.js"></script>
+  <script src="../js/admin-productos.js"></script>
+
+</body>
+</html>

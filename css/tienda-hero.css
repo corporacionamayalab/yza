@@ -1,0 +1,166 @@
+/* ==================== RESET BASE ==================== */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #FFFFFF;
+  color: #1A1A1A;
+  line-height: 1.6;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: inherit;
+}
+
+/* ==================== HERO TIENDA — MYT EXPRESS ==================== */
+
+.tienda-hero {
+  background: linear-gradient(135deg, #006C66 0%, #009D95 50%, #00B5A5 100%);
+  padding: 100px 24px 60px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decoración circular */
+.tienda-hero::after {
+  content: '';
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.tienda-hero__contenedor {
+  max-width: 600px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* ===== BADGE ===== */
+.tienda-hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.15);
+  color: #FFFFFF;
+  padding: 7px 16px;
+  border-radius: 50px;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  backdrop-filter: blur(4px);
+}
+
+.tienda-hero__badge-dot {
+  width: 6px;
+  height: 6px;
+  background: #FFFFFF;
+  border-radius: 50%;
+  animation: tiendaHeroPulse 2s ease-in-out infinite;
+}
+
+@keyframes tiendaHeroPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* ===== TÍTULO ===== */
+.tienda-hero__titulo {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(30px, 6vw, 44px);
+  font-weight: 800;
+  color: #FFFFFF;
+  margin-bottom: 12px;
+}
+
+.tienda-hero__titulo--destacado {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* ===== DESCRIPCIÓN ===== */
+.tienda-hero__descripcion {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 28px;
+}
+
+/* ===== STATS ===== */
+.tienda-hero__stats {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.tienda-hero__stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tienda-hero__stat-numero {
+  font-family: 'Poppins', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.tienda-hero__stat-label {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.75);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.tienda-hero__divider {
+  width: 1px;
+  height: 30px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .tienda-hero {
+    padding: 90px 20px 50px;
+  }
+
+  .tienda-hero__stats {
+    gap: 14px;
+  }
+
+  .tienda-hero__stat-numero {
+    font-size: 18px;
+  }
+}

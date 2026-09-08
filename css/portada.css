@@ -1,0 +1,244 @@
+/* ==================== RESET BASE ==================== */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #FFFFFF;
+  color: #1A1A1A;
+  line-height: 1.6;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: inherit;
+}
+
+/* ==================== PORTADA — MYT EXPRESS ==================== */
+
+.portada {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Imagen de fondo */
+.portada__fondo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* Overlay para mejor lectura */
+.portada__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 108, 102, 0.92) 0%,
+    rgba(0, 157, 149, 0.85) 50%,
+    rgba(0, 181, 165, 0.75) 100%
+  );
+  z-index: 1;
+}
+
+/* Decoración: círculos flotantes */
+.portada::after {
+  content: '';
+  position: absolute;
+  top: -80px;
+  right: -80px;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  animation: portadaFlotar 6s ease-in-out infinite;
+  z-index: 1;
+}
+
+@keyframes portadaFlotar {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+.portada__contenedor {
+  max-width: 650px;
+  margin: 0 auto;
+  padding: 120px 24px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* ===== BADGE ===== */
+.portada__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.15);
+  color: #FFFFFF;
+  padding: 8px 18px;
+  border-radius: 50px;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 24px;
+  backdrop-filter: blur(4px);
+}
+
+.portada__badge-dot {
+  width: 7px;
+  height: 7px;
+  background: #FFFFFF;
+  border-radius: 50%;
+  animation: portadaPulse 2s ease-in-out infinite;
+}
+
+@keyframes portadaPulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.5); }
+  50% { opacity: 0.6; box-shadow: 0 0 0 8px rgba(255, 255, 255, 0); }
+}
+
+/* ===== TÍTULO ===== */
+.portada__titulo {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(34px, 7vw, 56px);
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1.15;
+  margin-bottom: 20px;
+}
+
+.portada__titulo--destacado {
+  display: block;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 700;
+}
+
+/* ===== DESCRIPCIÓN ===== */
+.portada__descripcion {
+  font-family: 'Inter', sans-serif;
+  font-size: 17px;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+
+/* ===== BOTONES ===== */
+.portada__acciones {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+}
+
+.portada__btn {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  padding: 14px 28px;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.portada__btn--primario {
+  background: #FFFFFF;
+  color: #006C66;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.portada__btn--primario:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+.portada__btn--whatsapp {
+  background: #25D366;
+  color: #FFFFFF;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.35);
+}
+
+.portada__btn--whatsapp:hover {
+  background: #1ebe57;
+  transform: translateY(-2px);
+}
+
+/* ===== CONFIANZA ===== */
+.portada__confianza {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.portada__confianza-item {
+  background: rgba(255, 255, 255, 0.12);
+  color: #FFFFFF;
+  padding: 8px 16px;
+  border-radius: 50px;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  backdrop-filter: blur(4px);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .portada {
+    min-height: auto;
+  }
+
+  .portada__contenedor {
+    padding: 100px 20px 60px;
+  }
+
+  .portada__acciones {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .portada__btn {
+    justify-content: center;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+}

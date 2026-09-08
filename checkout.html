@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout | MYT Express</title>
+  <meta name="description" content="Finaliza tu pedido en MYT Express">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="icon" href="https://pub-1a9e1895df724843a63ab4872f69867b.r2.dev/favicon.png" type="image/png">
+  
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/checkout.css">
+    <link rel="stylesheet" href="css/footer.css">
+
+</head>
+<body>
+
+    <header class="header" id="header">
+  <div class="header__contenedor">
+
+    <!-- Logo -->
+    <a href="index.html" class="header__logo">
+      <img src="https://pub-1a9e1895df724843a63ab4872f69867b.r2.dev/logo.png" alt="MYT Express" class="header__logo-img">
+    </a>
+
+    <!-- Navegación Desktop -->
+    <nav class="header__nav" id="navMenu">
+      <ul class="header__menu">
+        <li><a href="index.html" class="header__link header__link--activo">Inicio</a></li>
+        <li><a href="tienda.html" class="header__link">Tienda</a></li>
+        <li><a href="#categorias" class="header__link">Categorías</a></li>
+        <li><a href="#como-comprar" class="header__link">Cómo comprar</a></li>
+      </ul>
+    </nav>
+
+    <!-- Acciones derecha (desktop) -->
+    <div class="header__acciones">
+      <a href="carrito.html" class="header__carrito">
+        <svg class="header__carrito-icono" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="9" cy="21" r="1"/>
+          <circle cx="20" cy="21" r="1"/>
+          <path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/>
+        </svg>
+        <span class="header__carrito-texto">Carrito</span>
+        <span class="header__carrito-contador" id="contadorCarrito">0</span>
+      </a>
+
+      <a href="https://wa.me/51990571182" class="header__btn-whatsapp" target="_blank" rel="noopener">
+        <svg class="header__btn-whatsapp-icon" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        <span class="header__btn-whatsapp-texto">Pedir</span>
+      </a>
+
+      <!-- Hamburguesa -->
+      <button class="header__hamburguesa" id="btnHamburguesa" aria-label="Abrir menú">
+        <span class="header__hamburguesa-linea"></span>
+        <span class="header__hamburguesa-linea"></span>
+        <span class="header__hamburguesa-linea"></span>
+      </button>
+    </div>
+
+  </div>
+
+  <!-- MENÚ MÓVIL LATERAL -->
+  <div class="menu-movil" id="menuMovil">
+    <div class="menu-movil__header">
+      <img src="assets/logo.png" alt="MYT Express" class="menu-movil__logo">
+      <span class="menu-movil__titulo">MYT Express</span>
+      <button class="menu-movil__cerrar" id="btnCerrarMenu" aria-label="Cerrar menú">✕</button>
+    </div>
+
+    <nav class="menu-movil__nav">
+      <ul class="menu-movil__lista">
+        <li><a href="index.html" class="menu-movil__link menu-movil__link--activo">🏠 Inicio</a></li>
+        <li><a href="tienda.html" class="menu-movil__link">🛒 Tienda</a></li>
+        <li><a href="#categorias" class="menu-movil__link">📂 Categorías</a></li>
+        <li><a href="#como-comprar" class="menu-movil__link">📋 Cómo comprar</a></li>
+      </ul>
+    </nav>
+
+    <div class="menu-movil__footer">
+      <a href="https://wa.me/51990571182" class="menu-movil__btn-whatsapp" target="_blank" rel="noopener">
+        💬 Pedir por WhatsApp
+      </a>
+      <a href="tel:+51990571182" class="menu-movil__btn-llamar">
+        📞 Llamar ahora
+      </a>
+    </div>
+  </div>
+
+  <!-- Overlay -->
+  <div class="header__overlay" id="headerOverlay"></div>
+
+</header>
+
+
+<!-- ==================== CHECKOUT — MYT EXPRESS ==================== -->
+<main class="checkout">
+  <div class="checkout__contenedor">
+
+    <h1 class="checkout__titulo">Finalizar Pedido</h1>
+
+    <!-- Formulario -->
+    <form class="checkout__form" id="formCheckout">
+
+      <!-- Datos del cliente -->
+      <div class="checkout__seccion">
+        <h2 class="checkout__subtitulo">📋 Tus datos</h2>
+        <div class="checkout__campos">
+          <div class="campo">
+            <label class="campo__label" for="nombre">Nombre completo *</label>
+            <input class="campo__input" type="text" id="nombre" placeholder="Ej: Juan Pérez" required>
+          </div>
+          <div class="campo">
+            <label class="campo__label" for="telefono">Teléfono *</label>
+            <input class="campo__input" type="tel" id="telefono" placeholder="Ej: 999 888 777" required>
+          </div>
+          <div class="campo">
+            <label class="campo__label" for="direccion">Dirección de entrega *</label>
+            <input class="campo__input" type="text" id="direccion" placeholder="Ej: Calle 123, Centro de Trujillo" required>
+          </div>
+        </div>
+      </div>
+
+      <!-- Método de pago -->
+      <div class="checkout__seccion">
+        <h2 class="checkout__subtitulo">💳 Método de pago</h2>
+        <div class="checkout__pagos">
+          <label class="pago-opcion">
+            <input type="radio" name="metodo_pago" value="yape" checked>
+            <span class="pago-opcion__icono">📱</span>
+            <div class="pago-opcion__info">
+              <strong>Yape</strong>
+              <small>990 571 182</small>
+            </div>
+          </label>
+          <label class="pago-opcion">
+            <input type="radio" name="metodo_pago" value="plin">
+            <span class="pago-opcion__icono">📲</span>
+            <div class="pago-opcion__info">
+              <strong>Plin</strong>
+              <small>962 273 178</small>
+            </div>
+          </label>
+          <label class="pago-opcion">
+            <input type="radio" name="metodo_pago" value="contra_entrega">
+            <span class="pago-opcion__icono">💵</span>
+            <div class="pago-opcion__info">
+              <strong>Contra entrega</strong>
+              <small>Efectivo al recibir</small>
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <!-- Resumen -->
+      <div class="checkout__seccion">
+        <h2 class="checkout__subtitulo">🛒 Tu pedido</h2>
+        <div class="checkout__resumen" id="checkoutResumen">
+          <!-- Items cargados dinámicamente -->
+        </div>
+      </div>
+
+      <!-- Botón -->
+      <button type="submit" class="checkout__btn" id="btnConfirmar">
+        Confirmar pedido
+      </button>
+
+    </form>
+
+  </div>
+</main>
+
+
+<!-- ==================== FOOTER — MYT EXPRESS ==================== -->
+<footer class="footer" id="footer">
+  <div class="footer__contenedor">
+
+    <!-- Parte superior -->
+    <div class="footer__grid">
+
+      <!-- Columna 1: Marca -->
+      <div class="footer__col footer__col--marca">
+        <div class="footer__logo">
+          <img src="assets/logo.png" alt="MYT Express" class="footer__logo-img">
+          <span class="footer__logo-texto">MYT Express</span>
+        </div>
+        <p class="footer__descripcion">
+          Licores y bebidas a domicilio. Centro de Trujillo y alrededores. 24 horas.
+        </p>
+        <div class="footer__social">
+          <a href="https://wa.me/51990571182" class="footer__social-link" target="_blank" rel="noopener" aria-label="WhatsApp">
+            💬
+          </a>
+          <a href="#" class="footer__social-link" aria-label="Facebook">
+            📘
+          </a>
+          <a href="#" class="footer__social-link" aria-label="Instagram">
+            📷
+          </a>
+        </div>
+      </div>
+
+      <!-- Columna 2: Enlaces -->
+      <div class="footer__col">
+        <h4 class="footer__titulo">Enlaces</h4>
+        <ul class="footer__links">
+          <li><a href="index.html" class="footer__link">Inicio</a></li>
+          <li><a href="tienda.html" class="footer__link">Tienda</a></li>
+          <li><a href="carrito.html" class="footer__link">Carrito</a></li>
+          <li><a href="#como-comprar" class="footer__link">Cómo comprar</a></li>
+        </ul>
+      </div>
+
+      <!-- Columna 3: Pagos -->
+      <div class="footer__col">
+        <h4 class="footer__titulo">Métodos de pago</h4>
+        <div class="footer__pagos">
+          <div class="footer__pago-item">
+            <span class="footer__pago-icono">📱</span>
+            <div>
+              <strong>Yape</strong>
+              <span>990 571 182</span>
+            </div>
+          </div>
+          <div class="footer__pago-item">
+            <span class="footer__pago-icono">📲</span>
+            <div>
+              <strong>Plin</strong>
+              <span>962 273 178</span>
+            </div>
+          </div>
+          <div class="footer__pago-item">
+            <span class="footer__pago-icono">💵</span>
+            <div>
+              <strong>Contra entrega</strong>
+              <span>Efectivo al recibir</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Columna 4: Contacto -->
+      <div class="footer__col">
+        <h4 class="footer__titulo">Contacto</h4>
+        <ul class="footer__links">
+          <li>
+            <a href="https://wa.me/51990571182" class="footer__link" target="_blank" rel="noopener">
+              💬 WhatsApp
+            </a>
+          </li>
+          <li>
+            <a href="tel:+51990571182" class="footer__link">
+              📞 Llamar ahora
+            </a>
+          </li>
+          <li class="footer__link--texto">
+            🕐 24 horas
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Línea divisora -->
+    <div class="footer__divider"></div>
+
+    <!-- Parte inferior -->
+    <div class="footer__bottom">
+      <p class="footer__copy">
+        © <span id="footerYear"></span> MYT Express. Todos los derechos reservados.
+      </p>
+      <div class="footer__legales">
+        <a href="#" class="footer__legal-link">Términos</a>
+        <span class="footer__separador">|</span>
+        <a href="#" class="footer__legal-link">Privacidad</a>
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/config.js"></script>
+<script src="js/supabase.js"></script>
+
+<script src="js/header.js"></script>
+<script src="js/footer.js"></script>
+<script src="js/checkout.js"></script>
+</body>
+</html>

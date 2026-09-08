@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel Admin | MYT Express</title>
+  <meta name="robots" content="noindex, nofollow">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="../css/admin-panel.css">
+</head>
+<body class="admin-body">
+
+  <!-- ==================== PANEL ==================== -->
+  <div class="panel">
+
+    <!-- Sidebar -->
+    <aside class="panel__sidebar">
+      <div class="panel__sidebar-logo">
+        <img src="../assets/logo.png" alt="MYT Express" class="panel__sidebar-img">
+        <span class="panel__sidebar-nombre">MYT Express</span>
+      </div>
+
+      <nav class="panel__sidebar-nav">
+        <a href="panel.html" class="panel__sidebar-link panel__sidebar-link--activo">
+          📊 Dashboard
+        </a>
+        <a href="productos.html" class="panel__sidebar-link">
+          📦 Productos
+        </a>
+        <a href="pedidos.html" class="panel__sidebar-link">
+          🛒 Pedidos
+        </a>
+        <a href="../index.html" class="panel__sidebar-link">
+          🏪 Ver tienda
+        </a>
+      </nav>
+
+      <button class="panel__sidebar-logout" id="btnLogout">
+        🚪 Cerrar sesión
+      </button>
+    </aside>
+
+    <!-- Contenido -->
+    <main class="panel__contenido">
+
+      <header class="panel__header">
+        <div>
+          <h1 class="panel__titulo">Dashboard</h1>
+          <p class="panel__subtitulo">Resumen general de tu negocio</p>
+        </div>
+        <div class="panel__fecha" id="fechaActual"></div>
+      </header>
+
+      <!-- Stats -->
+      <div class="panel__stats">
+        <div class="stat-card">
+          <div class="stat-card__icono">🛒</div>
+          <div class="stat-card__info">
+            <span class="stat-card__numero" id="statPedidos">0</span>
+            <span class="stat-card__label">Pedidos totales</span>
+          </div>
+        </div>
+        <div class="stat-card stat-card--pendientes">
+          <div class="stat-card__icono">⏳</div>
+          <div class="stat-card__info">
+            <span class="stat-card__numero" id="statPendientes">0</span>
+            <span class="stat-card__label">Pendientes</span>
+          </div>
+        </div>
+        <div class="stat-card stat-card--productos">
+          <div class="stat-card__icono">📦</div>
+          <div class="stat-card__info">
+            <span class="stat-card__numero" id="statProductos">0</span>
+            <span class="stat-card__label">Productos</span>
+          </div>
+        </div>
+        <div class="stat-card stat-card--ventas">
+          <div class="stat-card__icono">💰</div>
+          <div class="stat-card__info">
+            <span class="stat-card__numero" id="statVentas">S/ 0</span>
+            <span class="stat-card__label">Ventas totales</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Accesos rápidos -->
+      <div class="panel__accesos">
+        <a href="productos.html" class="panel__acceso">
+          <span class="panel__acceso-icono">📦</span>
+          <div>
+            <strong>Gestionar productos</strong>
+            <small>Agregar, editar o eliminar</small>
+          </div>
+        </a>
+        <a href="pedidos.html" class="panel__acceso">
+          <span class="panel__acceso-icono">🛒</span>
+          <div>
+            <strong>Ver pedidos</strong>
+            <small>Gestionar entregas</small>
+          </div>
+        </a>
+      </div>
+
+    </main>
+
+  </div>
+
+  <!-- JS -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="../js/config.js"></script>
+  <script src="../js/supabase.js"></script>
+  <script src="../js/admin-panel.js"></script>
+
+</body>
+</html>

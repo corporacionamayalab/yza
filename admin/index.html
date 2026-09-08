@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login | MYT Express</title>
+  <meta name="robots" content="noindex, nofollow">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="../css/admin-login.css">
+</head>
+<body class="admin-body">
+
+  <!-- LOGIN -->
+  <main class="login">
+
+    <!-- Fondo decorativo -->
+    <div class="login__decoracion login__decoracion--1"></div>
+    <div class="login__decoracion login__decoracion--2"></div>
+
+    <div class="login__contenedor">
+
+      <div class="login__logo">
+        <img src="../assets/logo.png" alt="MYT Express" class="login__logo-img">
+        
+      </div>
+
+      <h1 class="login__titulo">Bienvenido de nuevo</h1>
+      <p class="login__subtitulo">Ingresa tus credenciales para continuar</p>
+
+      <form class="login__form" id="formLogin">
+        <div class="campo">
+          <label class="campo__label" for="email">Correo electrónico</label>
+          <input class="campo__input" type="email" id="email" placeholder="admin@mytexpress.com" required>
+        </div>
+        <div class="campo">
+          <label class="campo__label" for="password">Contraseña</label>
+          <input class="campo__input" type="password" id="password" placeholder="••••••••" required>
+        </div>
+        <div class="login__error" id="loginError" style="display: none;"></div>
+        <button type="submit" class="login__btn">Entrar al panel</button>
+      </form>
+
+      <a href="../index.html" class="login__volver">← Volver a la tienda</a>
+
+    </div>
+  </main>
+
+  <!-- JS -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="../js/config.js"></script>
+  <script src="../js/supabase.js"></script>
+  <script src="../js/admin-login.js"></script>
+
+</body>
+</html>

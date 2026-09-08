@@ -1,0 +1,206 @@
+/* ==================== RESET BASE ==================== */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #FFFFFF;
+  color: #1A1A1A;
+  line-height: 1.6;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: inherit;
+}
+
+/* ==================== CÓMO COMPRAR — MYT EXPRESS ==================== */
+
+.como-comprar {
+  padding: 80px 24px;
+  background: #F8FAFC;
+}
+
+.como-comprar__contenedor {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* ===== ENCABEZADO ===== */
+.como-comprar__header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.como-comprar__badge {
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: #009D95;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 16px;
+  padding: 6px 16px;
+  border: 1px solid rgba(0, 157, 149, 0.2);
+  border-radius: 50px;
+  background: rgba(0, 157, 149, 0.05);
+}
+
+.como-comprar__titulo {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(28px, 5vw, 38px);
+  font-weight: 700;
+  color: #1A1A1A;
+  margin-bottom: 12px;
+}
+
+.como-comprar__descripcion {
+  font-size: 16px;
+  color: #64748B;
+}
+
+/* ===== GRID ===== */
+.como-comprar__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+  position: relative;
+}
+
+/* ===== PASO ===== */
+.paso {
+  background: #FFFFFF;
+  border-radius: 20px;
+  padding: 40px 28px;
+  text-align: center;
+  position: relative;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.paso:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.07);
+}
+
+/* Número */
+.paso__numero {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 36px;
+  height: 36px;
+  background: rgba(0, 157, 149, 0.08);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.paso__numero span {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #009D95;
+}
+
+/* Icono */
+.paso__icono {
+  width: 72px;
+  height: 72px;
+  border-radius: 24px;
+  background: rgba(0, 157, 149, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  transition: transform 0.35s ease;
+}
+
+.paso:hover .paso__icono {
+  transform: scale(1.1);
+}
+
+/* Título */
+.paso__titulo {
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #1A1A1A;
+}
+
+/* Texto */
+.paso__texto {
+  font-size: 14px;
+  color: #64748B;
+  line-height: 1.6;
+}
+
+/* ===== LÍNEA CONECTORA (solo desktop) ===== */
+@media (min-width: 769px) {
+  .como-comprar__grid::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 16%;
+    right: 16%;
+    height: 2px;
+    background: rgba(0, 157, 149, 0.15);
+    z-index: 0;
+  }
+
+  .paso {
+    z-index: 1;
+  }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .como-comprar {
+    padding: 60px 20px;
+  }
+
+  .como-comprar__grid {
+    gap: 16px;
+  }
+
+  .paso {
+    padding: 32px 22px;
+    gap: 12px;
+  }
+
+  .paso__icono {
+    width: 60px;
+    height: 60px;
+    font-size: 30px;
+    border-radius: 18px;
+  }
+}

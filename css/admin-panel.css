@@ -1,0 +1,269 @@
+/* ==================== RESET BASE ==================== */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #F1F5F9;
+  color: #1A1A1A;
+  line-height: 1.6;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: inherit;
+}
+
+/* ==================== PANEL — MYT EXPRESS ==================== */
+
+.panel {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ===== SIDEBAR ===== */
+.panel__sidebar {
+  width: 250px;
+  background: #0A1929;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 16px;
+  gap: 24px;
+  flex-shrink: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+}
+
+.panel__sidebar-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 8px;
+}
+
+.panel__sidebar-img {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.panel__sidebar-nombre {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: #009D95;
+}
+
+.panel__sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.panel__sidebar-link {
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #94A3B8;
+  transition: all 0.3s ease;
+}
+
+.panel__sidebar-link:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: #FFFFFF;
+}
+
+.panel__sidebar-link--activo {
+  background: rgba(0, 157, 149, 0.15);
+  color: #009D95;
+}
+
+.panel__sidebar-logout {
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #EF4444;
+  transition: all 0.3s ease;
+  text-align: left;
+}
+
+.panel__sidebar-logout:hover {
+  background: rgba(239, 68, 68, 0.1);
+}
+
+/* ===== CONTENIDO ===== */
+.panel__contenido {
+  margin-left: 250px;
+  flex: 1;
+  padding: 32px;
+}
+
+.panel__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 32px;
+}
+
+.panel__titulo {
+  font-family: 'Poppins', sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: #1A1A1A;
+}
+
+.panel__subtitulo {
+  font-size: 14px;
+  color: #94A3B8;
+}
+
+.panel__fecha {
+  background: #FFFFFF;
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-size: 13px;
+  color: #475569;
+  font-weight: 600;
+}
+
+/* ===== STATS ===== */
+.panel__stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.stat-card {
+  background: #FFFFFF;
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.stat-card__icono {
+  font-size: 32px;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #F1F5F9;
+  border-radius: 14px;
+}
+
+.stat-card__info {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-card__numero {
+  font-family: 'Poppins', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #1A1A1A;
+}
+
+.stat-card__label {
+  font-size: 12px;
+  color: #94A3B8;
+  font-weight: 500;
+}
+
+/* ===== ACCESOS ===== */
+.panel__accesos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.panel__acceso {
+  background: #FFFFFF;
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.panel__acceso:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+.panel__acceso-icono {
+  font-size: 32px;
+}
+
+.panel__acceso strong {
+  font-size: 15px;
+  color: #1A1A1A;
+  display: block;
+}
+
+.panel__acceso small {
+  font-size: 12px;
+  color: #94A3B8;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .panel__sidebar {
+    width: 70px;
+    padding: 16px 10px;
+  }
+
+  .panel__sidebar-nombre {
+    display: none;
+  }
+
+  .panel__sidebar-link {
+    text-align: center;
+    padding: 12px 8px;
+    font-size: 20px;
+  }
+
+  .panel__sidebar-link span {
+    display: none;
+  }
+
+  .panel__contenido {
+    margin-left: 70px;
+    padding: 20px;
+  }
+}

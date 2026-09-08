@@ -1,0 +1,179 @@
+/* ==================== RESET BASE ==================== */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #FFFFFF;
+  color: #1A1A1A;
+  line-height: 1.6;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: inherit;
+}
+
+/* ==================== CATEGORÍAS — MYT EXPRESS ==================== */
+
+.categorias {
+  padding: 80px 24px;
+  background: #F8FAFC;
+}
+
+.categorias__contenedor {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* ===== ENCABEZADO ===== */
+.categorias__header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.categorias__badge {
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: #009D95;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 16px;
+  padding: 6px 16px;
+  border: 1px solid rgba(0, 157, 149, 0.2);
+  border-radius: 50px;
+  background: rgba(0, 157, 149, 0.05);
+}
+
+.categorias__titulo {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(28px, 5vw, 38px);
+  font-weight: 700;
+  color: #1A1A1A;
+  margin-bottom: 12px;
+}
+
+.categorias__descripcion {
+  font-size: 16px;
+  color: #64748B;
+}
+
+/* ===== GRID ===== */
+.categorias__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 20px;
+}
+
+/* ===== CARD ===== */
+.categoria-card {
+  background: #FFFFFF;
+  border: 1px solid #F1F5F9;
+  border-radius: 20px;
+  padding: 32px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.categoria-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(0, 157, 149, 0.2);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.07);
+}
+
+/* Icono */
+.categoria-card__icono {
+  width: 64px;
+  height: 64px;
+  border-radius: 20px;
+  background: rgba(0, 157, 149, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  transition: all 0.35s ease;
+}
+
+.categoria-card:hover .categoria-card__icono {
+  transform: scale(1.1);
+  background: rgba(0, 157, 149, 0.15);
+}
+
+/* Nombre */
+.categoria-card__nombre {
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: #1A1A1A;
+  transition: color 0.3s ease;
+}
+
+.categoria-card:hover .categoria-card__nombre {
+  color: #009D95;
+}
+
+/* Cantidad */
+.categoria-card__cantidad {
+  font-size: 12px;
+  color: #94A3B8;
+  font-weight: 500;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .categorias {
+    padding: 60px 20px;
+  }
+
+  .categorias__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .categoria-card {
+    padding: 24px 16px;
+    gap: 10px;
+  }
+
+  .categoria-card__icono {
+    width: 52px;
+    height: 52px;
+    font-size: 26px;
+    border-radius: 16px;
+  }
+
+  .categoria-card__nombre {
+    font-size: 14px;
+  }
+}

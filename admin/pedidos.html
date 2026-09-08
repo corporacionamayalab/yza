@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pedidos | MYT Express Admin</title>
+  <meta name="robots" content="noindex, nofollow">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="../css/admin-panel.css">
+  <link rel="stylesheet" href="../css/admin-pedidos.css">
+</head>
+<body class="admin-body">
+
+  <!-- ==================== PANEL ==================== -->
+  <div class="panel">
+
+    <!-- Sidebar -->
+    <aside class="panel__sidebar">
+      <div class="panel__sidebar-logo">
+        <img src="../assets/logo.png" alt="MYT Express" class="panel__sidebar-img">
+        <span class="panel__sidebar-nombre">MYT Express</span>
+      </div>
+
+      <nav class="panel__sidebar-nav">
+        <a href="panel.html" class="panel__sidebar-link">
+          📊 Dashboard
+        </a>
+        <a href="productos.html" class="panel__sidebar-link">
+          📦 Productos
+        </a>
+        <a href="pedidos.html" class="panel__sidebar-link panel__sidebar-link--activo">
+          🛒 Pedidos
+        </a>
+        <a href="../index.html" class="panel__sidebar-link">
+          🏪 Ver tienda
+        </a>
+      </nav>
+
+      <button class="panel__sidebar-logout" id="btnLogout">
+        🚪 Cerrar sesión
+      </button>
+    </aside>
+
+    <!-- Contenido -->
+    <main class="panel__contenido">
+
+      <header class="panel__header">
+        <div>
+          <h1 class="panel__titulo">Pedidos</h1>
+          <p class="panel__subtitulo">Gestiona las entregas de tu negocio</p>
+        </div>
+      </header>
+
+      <!-- Filtros de estado -->
+      <div class="pedidos-filtros">
+        <button class="pedidos-filtro pedidos-filtro--activo" data-filtro="todos">Todos</button>
+        <button class="pedidos-filtro" data-filtro="pendiente">⏳ Pendientes</button>
+        <button class="pedidos-filtro" data-filtro="confirmado">✅ Confirmados</button>
+        <button class="pedidos-filtro" data-filtro="entregado">🚀 Entregados</button>
+      </div>
+
+      <!-- Lista de pedidos -->
+      <div class="pedidos-lista" id="listaPedidos"></div>
+
+    </main>
+
+  </div>
+
+  <!-- JS -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="../js/config.js"></script>
+  <script src="../js/supabase.js"></script>
+  <script src="../js/admin-pedidos.js"></script>
+
+</body>
+</html>

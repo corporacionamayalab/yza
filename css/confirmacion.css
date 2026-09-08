@@ -1,0 +1,149 @@
+/* ==================== RESET BASE ==================== */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #F8FAFC;
+  color: #1A1A1A;
+  line-height: 1.6;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: inherit;
+}
+
+/* ==================== CONFIRMACIÓN — MYT EXPRESS ==================== */
+
+.confirmacion {
+  min-height: 100vh;
+  padding: 120px 24px 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.confirmacion__contenedor {
+  max-width: 500px;
+  background: #FFFFFF;
+  border-radius: 20px;
+  padding: 48px 32px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+.confirmacion__icono {
+  font-size: 64px;
+  margin-bottom: 20px;
+  animation: confirmacionPop 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes confirmacionPop {
+  0% { transform: scale(0); opacity: 0; }
+  60% { transform: scale(1.2); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.confirmacion__titulo {
+  font-family: 'Poppins', sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: #1A1A1A;
+  margin-bottom: 12px;
+}
+
+.confirmacion__texto {
+  font-size: 15px;
+  color: #475569;
+  margin-bottom: 20px;
+}
+
+.confirmacion__numero {
+  display: inline-block;
+  background: rgba(0, 157, 149, 0.1);
+  color: #009D95;
+  font-weight: 700;
+  padding: 8px 20px;
+  border-radius: 50px;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.confirmacion__info {
+  background: #F8FAFC;
+  border-radius: 12px;
+  padding: 16px;
+  font-size: 14px;
+  color: #475569;
+  margin-bottom: 24px;
+}
+
+.confirmacion__acciones {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.confirmacion__btn {
+  display: block;
+  text-align: center;
+  padding: 14px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 15px;
+  transition: background 0.3s ease;
+}
+
+.confirmacion__btn--whatsapp {
+  background: #25D366;
+  color: #FFFFFF;
+}
+
+.confirmacion__btn--whatsapp:hover {
+  background: #1ebe57;
+}
+
+.confirmacion__btn--tienda {
+  background: #009D95;
+  color: #FFFFFF;
+}
+
+.confirmacion__btn--tienda:hover {
+  background: #006C66;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .confirmacion {
+    padding: 100px 16px 40px;
+  }
+
+  .confirmacion__contenedor {
+    padding: 36px 24px;
+  }
+}

@@ -1,0 +1,217 @@
+/* ==================== RESET BASE ==================== */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #F8FAFC;
+  color: #1A1A1A;
+  line-height: 1.6;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: inherit;
+}
+
+/* ==================== CHECKOUT — MYT EXPRESS ==================== */
+
+.checkout {
+  min-height: 100vh;
+  padding: 120px 24px 60px;
+}
+
+.checkout__contenedor {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.checkout__titulo {
+  font-family: 'Poppins', sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  color: #1A1A1A;
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.checkout__form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ===== SECCIONES ===== */
+.checkout__seccion {
+  background: #FFFFFF;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.checkout__subtitulo {
+  font-size: 17px;
+  font-weight: 700;
+  color: #1A1A1A;
+  margin-bottom: 20px;
+}
+
+/* ===== CAMPOS ===== */
+.checkout__campos {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.campo__label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #475569;
+}
+
+.campo__input {
+  padding: 12px 16px;
+  border: 1px solid #E2E8F0;
+  border-radius: 10px;
+  font-size: 14px;
+  transition: border-color 0.3s ease;
+}
+
+.campo__input:focus {
+  border-color: #009D95;
+  box-shadow: 0 0 0 3px rgba(0, 157, 149, 0.1);
+  outline: none;
+}
+
+/* ===== PAGOS ===== */
+.checkout__pagos {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.pago-opcion {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  border: 2px solid #F1F5F9;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.pago-opcion:hover {
+  border-color: #009D95;
+}
+
+.pago-opcion:has(input:checked) {
+  border-color: #009D95;
+  background: rgba(0, 157, 149, 0.05);
+}
+
+.pago-opcion input {
+  display: none;
+}
+
+.pago-opcion__icono {
+  font-size: 24px;
+}
+
+.pago-opcion__info {
+  display: flex;
+  flex-direction: column;
+}
+
+.pago-opcion__info strong {
+  font-size: 15px;
+  color: #1A1A1A;
+}
+
+.pago-opcion__info small {
+  font-size: 12px;
+  color: #94A3B8;
+}
+
+/* ===== RESUMEN ===== */
+.checkout__resumen {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.checkout-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  color: #475569;
+}
+
+.checkout-item__nombre {
+  font-weight: 500;
+}
+
+.checkout-total {
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  font-weight: 700;
+  color: #1A1A1A;
+  border-top: 1px solid #F1F5F9;
+  padding-top: 16px;
+  margin-top: 8px;
+}
+
+/* ===== BOTÓN ===== */
+.checkout__btn {
+  width: 100%;
+  padding: 16px;
+  background: #009D95;
+  color: #FFFFFF;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 700;
+  transition: background 0.3s ease;
+}
+
+.checkout__btn:hover {
+  background: #006C66;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .checkout {
+    padding: 100px 16px 40px;
+  }
+}

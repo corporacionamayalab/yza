@@ -1,0 +1,234 @@
+/* ==================== RESET BASE ==================== */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #F8FAFC;
+  color: #1A1A1A;
+  line-height: 1.6;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: inherit;
+}
+
+/* ==================== LOGIN ADMIN — MYT EXPRESS ==================== */
+
+.admin-body {
+  background: #0A1929;
+}
+
+.login {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ===== DECORACIONES ===== */
+.login__decoracion {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(0, 157, 149, 0.05);
+  animation: loginFlotar 8s ease-in-out infinite;
+}
+
+.login__decoracion--1 {
+  top: -100px;
+  right: -100px;
+  width: 350px;
+  height: 350px;
+}
+
+.login__decoracion--2 {
+  bottom: -80px;
+  left: -80px;
+  width: 280px;
+  height: 280px;
+  animation-delay: 2s;
+}
+
+@keyframes loginFlotar {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+/* ===== CONTENEDOR ===== */
+.login__contenedor {
+  background: #FFFFFF;
+  border-radius: 24px;
+  padding: 48px 36px;
+  max-width: 420px;
+  width: 100%;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 1;
+}
+
+/* ===== LOGO ===== */
+.login__logo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  justify-content: center;
+  margin-bottom: 32px;
+}
+
+.login__logo-img {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  object-fit: cover;
+}
+
+.login__logo-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.login__logo-info strong {
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  color: #009D95;
+}
+
+.login__logo-info span {
+  font-size: 12px;
+  color: #94A3B8;
+  font-weight: 500;
+}
+
+/* ===== TÍTULO ===== */
+.login__titulo {
+  font-family: 'Poppins', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #1A1A1A;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.login__subtitulo {
+  font-size: 14px;
+  color: #94A3B8;
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+/* ===== FORM ===== */
+.login__form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.campo__label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #475569;
+}
+
+.campo__input {
+  padding: 14px 16px;
+  border: 1px solid #E2E8F0;
+  border-radius: 12px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  background: #F8FAFC;
+}
+
+.campo__input:focus {
+  border-color: #009D95;
+  box-shadow: 0 0 0 3px rgba(0, 157, 149, 0.1);
+  outline: none;
+  background: #FFFFFF;
+}
+
+/* ===== ERROR ===== */
+.login__error {
+  background: #FEF2F2;
+  border: 1px solid #FECACA;
+  color: #EF4444;
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* ===== BOTÓN ===== */
+.login__btn {
+  width: 100%;
+  padding: 15px;
+  background: #009D95;
+  color: #FFFFFF;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  letter-spacing: 0.3px;
+}
+
+.login__btn:hover {
+  background: #006C66;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(0, 157, 149, 0.3);
+}
+
+/* ===== VOLVER ===== */
+.login__volver {
+  display: block;
+  text-align: center;
+  margin-top: 24px;
+  font-size: 13px;
+  color: #94A3B8;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.login__volver:hover {
+  color: #009D95;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 480px) {
+  .login__contenedor {
+    padding: 36px 24px;
+  }
+}

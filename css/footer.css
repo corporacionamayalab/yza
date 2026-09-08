@@ -1,0 +1,301 @@
+/* ==================== RESET BASE ==================== */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #FFFFFF;
+  color: #1A1A1A;
+  line-height: 1.6;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: inherit;
+}
+
+/* ==================== FOOTER — MYT EXPRESS ==================== */
+
+.footer {
+  background: #0A1929;
+  color: #FFFFFF;
+  padding: 60px 24px 24px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.footer__contenedor {
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* ===== GRID ===== */
+.footer__grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1.2fr 1fr;
+  gap: 40px;
+  margin-bottom: 48px;
+  width: 100%;
+}
+
+/* ===== COLUMNAS ===== */
+.footer__col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  width: 100%;
+}
+
+/* ===== COLUMNA MARCA ===== */
+.footer__logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.footer__logo-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.footer__logo-texto {
+  font-family: 'Poppins', sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  color: #009D95;
+}
+
+.footer__descripcion {
+  font-size: 14px;
+  color: #94A3B8;
+  line-height: 1.7;
+  margin-bottom: 20px;
+  max-width: 280px;
+}
+
+.footer__social {
+  display: flex;
+  gap: 10px;
+}
+
+.footer__social-link {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  transition: all 0.3s ease;
+}
+
+.footer__social-link:hover {
+  background: rgba(0, 157, 149, 0.15);
+  transform: translateY(-2px);
+}
+
+/* ===== TÍTULOS ===== */
+.footer__titulo {
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 18px;
+  color: #FFFFFF;
+  text-align: left;
+}
+
+/* ===== LINKS ===== */
+.footer__links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.footer__link {
+  font-size: 14px;
+  color: #94A3B8;
+  transition: color 0.3s ease;
+}
+
+.footer__link:hover {
+  color: #009D95;
+}
+
+.footer__link--texto {
+  font-size: 14px;
+  color: #94A3B8;
+}
+
+/* ===== PAGOS ===== */
+.footer__pagos {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.footer__pago-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.footer__pago-icono {
+  font-size: 22px;
+}
+
+.footer__pago-item div {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer__pago-item strong {
+  font-size: 14px;
+  color: #FFFFFF;
+}
+
+.footer__pago-item span {
+  font-size: 12px;
+  color: #94A3B8;
+}
+
+/* ===== DIVIDER ===== */
+.footer__divider {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 24px;
+  width: 100%;
+}
+
+/* ===== BOTTOM ===== */
+.footer__bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  width: 100%;
+}
+
+.footer__copy {
+  font-size: 13px;
+  color: #64748B;
+}
+
+.footer__legales {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer__legal-link {
+  font-size: 13px;
+  color: #64748B;
+  transition: color 0.3s ease;
+}
+
+.footer__legal-link:hover {
+  color: #009D95;
+}
+
+.footer__separador {
+  color: rgba(255, 255, 255, 0.15);
+  font-size: 13px;
+}
+
+/* ===== RESPONSIVE ===== */
+
+/* Tablet */
+@media (max-width: 900px) {
+  .footer__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  .footer__col {
+    align-items: flex-start;
+    text-align: left;
+  }
+}
+
+/* Móvil */
+@media (max-width: 600px) {
+  .footer {
+    padding: 40px 20px 20px;
+  }
+
+  .footer__grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    text-align: center;
+  }
+
+  .footer__col {
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer__titulo {
+    text-align: center;
+  }
+
+  .footer__descripcion {
+    text-align: center;
+  }
+
+  .footer__social {
+    justify-content: center;
+  }
+
+  .footer__links {
+    align-items: center;
+  }
+
+  .footer__pagos {
+    align-items: center;
+  }
+
+  .footer__pago-item {
+    justify-content: center;
+  }
+
+  .footer__bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 16px;
+  }
+
+  .footer__legales {
+    justify-content: center;
+  }
+}

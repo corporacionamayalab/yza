@@ -1,0 +1,127 @@
+/* ==================== RESET BASE ==================== */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #FFFFFF;
+  color: #1A1A1A;
+  line-height: 1.6;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: inherit;
+}
+
+/* ==================== FILTROS — MYT EXPRESS ==================== */
+
+.tienda-filtros {
+  background: #FFFFFF;
+  padding: 14px 24px;
+  border-bottom: 1px solid #F1F5F9;
+}
+
+.tienda-filtros__contenedor {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.tienda-filtros__categorias {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* ===== BOTÓN DE FILTRO ===== */
+.filtro-categoria {
+  padding: 9px 18px;
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 600;
+  background: #F1F5F9;
+  color: #475569;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.filtro-categoria:hover {
+  background: #E2E8F0;
+  transform: translateY(-1px);
+}
+
+.filtro-categoria--activo {
+  background: #009D95;
+  color: #FFFFFF;
+  box-shadow: 0 4px 16px rgba(0, 157, 149, 0.3);
+}
+
+.filtro-categoria--activo:hover {
+  background: #006C66;
+}
+
+/* ===== CONTADOR DENTRO DEL BOTÓN ===== */
+.filtro-categoria__contador {
+  background: rgba(0, 0, 0, 0.08);
+  padding: 2px 8px;
+  border-radius: 50px;
+  font-size: 11px;
+}
+
+.filtro-categoria--activo .filtro-categoria__contador {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .tienda-filtros {
+    padding: 12px 16px;
+  }
+
+  .tienda-filtros__categorias {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    justify-content: flex-start;
+    gap: 6px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .tienda-filtros__categorias::-webkit-scrollbar {
+    display: none;
+  }
+
+  .filtro-categoria {
+    white-space: nowrap;
+    flex-shrink: 0;
+    padding: 8px 14px;
+    font-size: 12px;
+  }
+}

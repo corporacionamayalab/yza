@@ -1,0 +1,223 @@
+/* ==================== RESET BASE ==================== */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #F1F5F9;
+  color: #1A1A1A;
+  line-height: 1.6;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: inherit;
+}
+
+/* ==================== PEDIDOS ADMIN — MYT EXPRESS ==================== */
+
+/* ===== FILTROS ===== */
+.pedidos-filtros {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.pedidos-filtro {
+  padding: 9px 18px;
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 600;
+  background: #FFFFFF;
+  color: #475569;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.pedidos-filtro:hover {
+  background: #F1F5F9;
+}
+
+.pedidos-filtro--activo {
+  background: #009D95;
+  color: #FFFFFF;
+}
+
+/* ===== LISTA ===== */
+.pedidos-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.pedido-card {
+  background: #FFFFFF;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: all 0.3s ease;
+}
+
+.pedido-card:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+.pedido-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pedido-card__id {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  color: #1A1A1A;
+}
+
+.pedido-card__estado {
+  padding: 5px 14px;
+  border-radius: 50px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.pedido-card__estado--pendiente {
+  background: #FEF3C7;
+  color: #A16207;
+}
+
+.pedido-card__estado--confirmado {
+  background: #DCFCE7;
+  color: #166534;
+}
+
+.pedido-card__estado--entregado {
+  background: #E0E7FF;
+  color: #3730A3;
+}
+
+.pedido-card__info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.pedido-card__info span {
+  font-size: 13px;
+  color: #64748B;
+}
+
+.pedido-card__info strong {
+  color: #1A1A1A;
+}
+
+.pedido-card__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  border-top: 1px solid #F1F5F9;
+  padding-top: 12px;
+}
+
+.pedido-card__total {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #009D95;
+}
+
+.pedido-card__select {
+  padding: 8px 12px;
+  border: 1px solid #E2E8F0;
+  border-radius: 8px;
+  font-size: 13px;
+  background: #F8FAFC;
+}
+
+.pedido-card__select:focus {
+  border-color: #009D95;
+}
+
+.pedidos-vacio {
+  text-align: center;
+  padding: 60px;
+  color: #94A3B8;
+  font-size: 16px;
+  background: #FFFFFF;
+  border-radius: 16px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .pedido-card__header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .pedido-card__footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* ===== ITEMS DEL PEDIDO ===== */
+.pedido-card__items {
+  background: #F8FAFC;
+  border-radius: 10px;
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.pedido-card__items strong {
+  font-size: 13px;
+  color: #1A1A1A;
+}
+
+.pedido-card__item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #64748B;
+}
+
+.pedido-card__sin-items {
+  font-size: 13px;
+  color: #94A3B8;
+}
