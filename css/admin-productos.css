@@ -197,3 +197,104 @@ button {
     flex-wrap: wrap;
   }
 }
+/* ===== BOTÓN AGREGAR ===== */
+.admin-contenido__btn-agregar {
+  background: #009D95;
+  color: #FFFFFF;
+  padding: 12px 20px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.admin-contenido__btn-agregar:hover {
+  background: #006C66;
+  transform: translateY(-2px);
+}
+
+/* ===== FORM HEADER ===== */
+.admin-form__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.admin-form__cerrar {
+  background: #F1F5F9;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.admin-form__acciones {
+  display: flex;
+  gap: 10px;
+}
+
+.admin-form__btn-cancelar {
+  padding: 12px 20px;
+  background: #F1F5F9;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+/* ===== BUSCADOR ===== */
+.admin-buscador {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #FFFFFF;
+  border-radius: 12px;
+  padding: 12px 16px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.admin-buscador input {
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 14px;
+}
+
+/* ===== SUBIR IMAGEN ===== */
+.admin-imagen-upload {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.admin-imagen-upload__btn {
+  background: #009D95;
+  color: #FFFFFF;
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.admin-imagen-upload__btn:hover {
+  background: #006C66;
+}
+
+.admin-imagen-upload__nombre {
+  font-size: 12px;
+  color: #94A3B8;
+}
+
+.admin-imagen-preview {
+  margin-top: 10px;
+}
+
+.admin-imagen-preview img {
+  max-width: 120px;
+  max-height: 120px;
+  border-radius: 10px;
+  object-fit: cover;
+}

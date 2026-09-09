@@ -16,100 +16,124 @@
 </head>
 <body class="admin-body">
 
-  <!-- ==================== PANEL ==================== -->
-  <div class="panel">
+  <!-- ==================== HEADER SUPERIOR ==================== -->
+  <header class="admin-header">
+    <div class="admin-header__contenedor">
 
-    <!-- Sidebar -->
-    <aside class="panel__sidebar">
-      <div class="panel__sidebar-logo">
-        <img src="../assets/logo.png" alt="MYT Express" class="panel__sidebar-img">
-        <span class="panel__sidebar-nombre">MYT Express</span>
-      </div>
+      <!-- Logo -->
+      <a href="panel.html" class="admin-header__logo">
+        <img src="https://pub-1a9e1895df724843a63ab4872f69867b.r2.dev/logo.png" alt="MYT Express" class="admin-header__logo-img">
+        <span class="admin-header__logo-texto">MYT Express</span>
+        <span class="admin-header__badge">Admin</span>
+      </a>
 
-      <nav class="panel__sidebar-nav">
-        <a href="panel.html" class="panel__sidebar-link panel__sidebar-link--activo">
-          📊 Dashboard
-        </a>
-        <a href="productos.html" class="panel__sidebar-link">
-          📦 Productos
-        </a>
-        <a href="pedidos.html" class="panel__sidebar-link">
-          🛒 Pedidos
-        </a>
-        <a href="../index.html" class="panel__sidebar-link">
-          🏪 Ver tienda
-        </a>
+      <!-- Navegación Desktop -->
+      <nav class="admin-header__nav" id="adminNav">
+        <a href="panel.html" class="admin-header__link admin-header__link--activo">📊 Dashboard</a>
+        <a href="productos.html" class="admin-header__link">📦 Productos</a>
+        <a href="pedidos.html" class="admin-header__link">🛒 Pedidos</a>
       </nav>
 
-      <button class="panel__sidebar-logout" id="btnLogout">
-        🚪 Cerrar sesión
+      <!-- Acciones Desktop -->
+      <div class="admin-header__acciones">
+        <a href="../index.html" class="admin-header__btn-tienda" target="_blank">🏪 Ver tienda</a>
+        <button class="admin-header__btn-logout" id="btnLogout">🚪 Salir</button>
+      </div>
+
+      <!-- Hamburguesa -->
+      <button class="admin-header__hamburguesa" id="btnAdminHamburguesa" aria-label="Abrir menú">
+        <span></span>
+        <span></span>
+        <span></span>
       </button>
-    </aside>
 
-    <!-- Contenido -->
-    <main class="panel__contenido">
+    </div>
+  </header>
 
-      <header class="panel__header">
-        <div>
-          <h1 class="panel__titulo">Dashboard</h1>
-          <p class="panel__subtitulo">Resumen general de tu negocio</p>
-        </div>
-        <div class="panel__fecha" id="fechaActual"></div>
-      </header>
+  <!-- ==================== MENÚ MÓVIL ==================== -->
+  <div class="admin-menu-movil" id="adminMenuMovil">
+    <div class="admin-menu-movil__header">
+      <img src="https://pub-1a9e1895df724843a63ab4872f69867b.r2.dev/logo.png" alt="MYT Express" class="admin-menu-movil__logo">
+      <span class="admin-menu-movil__titulo">MYT Express Admin</span>
+      <button class="admin-menu-movil__cerrar" id="btnAdminCerrarMenu">✕</button>
+    </div>
 
-      <!-- Stats -->
-      <div class="panel__stats">
-        <div class="stat-card">
-          <div class="stat-card__icono">🛒</div>
-          <div class="stat-card__info">
-            <span class="stat-card__numero" id="statPedidos">0</span>
-            <span class="stat-card__label">Pedidos totales</span>
-          </div>
-        </div>
-        <div class="stat-card stat-card--pendientes">
-          <div class="stat-card__icono">⏳</div>
-          <div class="stat-card__info">
-            <span class="stat-card__numero" id="statPendientes">0</span>
-            <span class="stat-card__label">Pendientes</span>
-          </div>
-        </div>
-        <div class="stat-card stat-card--productos">
-          <div class="stat-card__icono">📦</div>
-          <div class="stat-card__info">
-            <span class="stat-card__numero" id="statProductos">0</span>
-            <span class="stat-card__label">Productos</span>
-          </div>
-        </div>
-        <div class="stat-card stat-card--ventas">
-          <div class="stat-card__icono">💰</div>
-          <div class="stat-card__info">
-            <span class="stat-card__numero" id="statVentas">S/ 0</span>
-            <span class="stat-card__label">Ventas totales</span>
-          </div>
-        </div>
-      </div>
+    <nav class="admin-menu-movil__nav">
+      <a href="panel.html" class="admin-menu-movil__link admin-menu-movil__link--activo">📊 Dashboard</a>
+      <a href="productos.html" class="admin-menu-movil__link">📦 Productos</a>
+      <a href="pedidos.html" class="admin-menu-movil__link">🛒 Pedidos</a>
+      <a href="../index.html" class="admin-menu-movil__link">🏪 Ver tienda</a>
+    </nav>
 
-      <!-- Accesos rápidos -->
-      <div class="panel__accesos">
-        <a href="productos.html" class="panel__acceso">
-          <span class="panel__acceso-icono">📦</span>
-          <div>
-            <strong>Gestionar productos</strong>
-            <small>Agregar, editar o eliminar</small>
-          </div>
-        </a>
-        <a href="pedidos.html" class="panel__acceso">
-          <span class="panel__acceso-icono">🛒</span>
-          <div>
-            <strong>Ver pedidos</strong>
-            <small>Gestionar entregas</small>
-          </div>
-        </a>
-      </div>
-
-    </main>
-
+    <div class="admin-menu-movil__footer">
+      <button class="admin-menu-movil__logout" id="btnLogoutMovil">🚪 Cerrar sesión</button>
+    </div>
   </div>
+
+  <div class="admin-header__overlay" id="adminOverlay"></div>
+
+  <!-- ==================== CONTENIDO ==================== -->
+  <main class="admin-contenido">
+
+    <div class="admin-contenido__header">
+      <div>
+        <h1 class="admin-contenido__titulo">Dashboard</h1>
+        <p class="admin-contenido__subtitulo">Resumen general de tu negocio</p>
+      </div>
+      <div class="admin-contenido__fecha" id="fechaActual"></div>
+    </div>
+
+    <div class="admin-stats">
+      <div class="admin-stat admin-stat--pedidos">
+        <div class="admin-stat__icono">🛒</div>
+        <div class="admin-stat__info">
+          <span class="admin-stat__numero" id="statPedidos">0</span>
+          <span class="admin-stat__label">Pedidos totales</span>
+        </div>
+      </div>
+      <div class="admin-stat admin-stat--pendientes">
+        <div class="admin-stat__icono">⏳</div>
+        <div class="admin-stat__info">
+          <span class="admin-stat__numero" id="statPendientes">0</span>
+          <span class="admin-stat__label">Pendientes</span>
+        </div>
+      </div>
+      <div class="admin-stat admin-stat--productos">
+        <div class="admin-stat__icono">📦</div>
+        <div class="admin-stat__info">
+          <span class="admin-stat__numero" id="statProductos">0</span>
+          <span class="admin-stat__label">Productos</span>
+        </div>
+      </div>
+      <div class="admin-stat admin-stat--ventas">
+        <div class="admin-stat__icono">💰</div>
+        <div class="admin-stat__info">
+          <span class="admin-stat__numero" id="statVentas">S/ 0</span>
+          <span class="admin-stat__label">Ventas totales</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="admin-accesos">
+      <a href="productos.html" class="admin-acceso">
+        <span class="admin-acceso__icono">📦</span>
+        <div class="admin-acceso__info">
+          <strong>Gestionar productos</strong>
+          <small>Agregar, editar o eliminar</small>
+        </div>
+        <span class="admin-acceso__flecha">→</span>
+      </a>
+      <a href="pedidos.html" class="admin-acceso">
+        <span class="admin-acceso__icono">🛒</span>
+        <div class="admin-acceso__info">
+          <strong>Ver pedidos</strong>
+          <small>Gestionar entregas</small>
+        </div>
+        <span class="admin-acceso__flecha">→</span>
+      </a>
+    </div>
+
+  </main>
 
   <!-- JS -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>

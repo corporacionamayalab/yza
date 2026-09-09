@@ -59,3 +59,40 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 
 });
+
+// ==================== MENÚ MÓVIL ADMIN ====================
+
+const btnAdminHamburguesa = document.getElementById('btnAdminHamburguesa');
+const adminMenuMovil = document.getElementById('adminMenuMovil');
+const btnAdminCerrarMenu = document.getElementById('btnAdminCerrarMenu');
+const adminOverlay = document.getElementById('adminOverlay');
+
+function abrirAdminMenu() {
+  adminMenuMovil.classList.add('admin-menu-movil--abierto');
+  adminOverlay.classList.add('admin-header__overlay--visible');
+  document.body.style.overflow = 'hidden';
+}
+
+function cerrarAdminMenu() {
+  adminMenuMovil.classList.remove('admin-menu-movil--abierto');
+  adminOverlay.classList.remove('admin-header__overlay--visible');
+  document.body.style.overflow = '';
+}
+
+btnAdminHamburguesa.addEventListener('click', abrirAdminMenu);
+btnAdminCerrarMenu.addEventListener('click', cerrarAdminMenu);
+adminOverlay.addEventListener('click', cerrarAdminMenu);
+
+// Cerrar al hacer clic en un link
+document.querySelectorAll('.admin-menu-movil__link').forEach(link => {
+  link.addEventListener('click', cerrarAdminMenu);
+});
+
+// Logout móvil
+const btnLogoutMovil = document.getElementById('btnLogoutMovil');
+if (btnLogoutMovil) {
+  btnLogoutMovil.addEventListener('click', async () => {
+    await window.supabaseClient.auth.signOut();
+    window.location.href = 'index.html';
+  });
+}

@@ -17,85 +17,132 @@
 </head>
 <body class="admin-body">
 
-  <!-- ==================== PANEL ==================== -->
-  <div class="panel">
+  <!-- HEADER SUPERIOR -->
+  <header class="admin-header">
+    <div class="admin-header__contenedor">
+      <a href="panel.html" class="admin-header__logo">
+        <img src="https://pub-1a9e1895df724843a63ab4872f69867b.r2.dev/logo.png" alt="MYT Express" class="admin-header__logo-img">
+        <span class="admin-header__logo-texto">MYT Express</span>
+        <span class="admin-header__badge">Admin</span>
+      </a>
 
-    <!-- Sidebar -->
-    <aside class="panel__sidebar">
-      <div class="panel__sidebar-logo">
-        <img src="../assets/logo.png" alt="MYT Express" class="panel__sidebar-img">
-        <span class="panel__sidebar-nombre">MYT Express</span>
-      </div>
-
-      <nav class="panel__sidebar-nav">
-        <a href="panel.html" class="panel__sidebar-link">
-          📊 Dashboard
-        </a>
-        <a href="productos.html" class="panel__sidebar-link panel__sidebar-link--activo">
-          📦 Productos
-        </a>
-        <a href="pedidos.html" class="panel__sidebar-link">
-          🛒 Pedidos
-        </a>
-        <a href="../index.html" class="panel__sidebar-link">
-          🏪 Ver tienda
-        </a>
+      <nav class="admin-header__nav">
+        <a href="panel.html" class="admin-header__link">📊 Dashboard</a>
+        <a href="productos.html" class="admin-header__link admin-header__link--activo">📦 Productos</a>
+        <a href="pedidos.html" class="admin-header__link">🛒 Pedidos</a>
       </nav>
 
-      <button class="panel__sidebar-logout" id="btnLogout">
-        🚪 Cerrar sesión
+      <div class="admin-header__acciones">
+        <a href="../index.html" class="admin-header__btn-tienda" target="_blank">🏪 Ver tienda</a>
+        <button class="admin-header__btn-logout" id="btnLogout">🚪 Salir</button>
+      </div>
+
+      <button class="admin-header__hamburguesa" id="btnAdminHamburguesa">
+        <span></span><span></span><span></span>
       </button>
-    </aside>
+    </div>
+  </header>
 
-    <!-- Contenido -->
-    <main class="panel__contenido">
-
-      <header class="panel__header">
-        <div>
-          <h1 class="panel__titulo">Gestionar Productos</h1>
-          <p class="panel__subtitulo">Agrega, edita o elimina productos</p>
-        </div>
-      </header>
-
-      <!-- Formulario -->
-      <form class="admin-form" id="formProducto">
-        <div class="admin-form__fila">
-          <div class="campo">
-            <label class="campo__label">Nombre *</label>
-            <input class="campo__input" type="text" id="nombre" placeholder="Ej: Cerveza Pilsen" required>
-          </div>
-          <div class="campo">
-            <label class="campo__label">Categoría *</label>
-            <input class="campo__input" type="text" id="categoria" placeholder="cervezas, vinos, destilados" required>
-          </div>
-        </div>
-        <div class="admin-form__fila">
-          <div class="campo">
-            <label class="campo__label">Precio (S/) *</label>
-            <input class="campo__input" type="number" id="precio" step="0.01" placeholder="25.00" required>
-          </div>
-          <div class="campo">
-            <label class="campo__label">Stock *</label>
-            <input class="campo__input" type="number" id="stock" placeholder="20" required>
-          </div>
-        </div>
-        <div class="campo">
-          <label class="campo__label">URL de imagen</label>
-          <input class="campo__input" type="text" id="imagen_url" placeholder="https://ejemplo.com/foto.jpg">
-        </div>
-        <div class="campo">
-          <label class="campo__label">Descripción</label>
-          <textarea class="campo__input" id="descripcion" rows="3" placeholder="Descripción corta del producto..."></textarea>
-        </div>
-        <button type="submit" class="admin-form__btn">Guardar producto</button>
-      </form>
-
-      <!-- Lista de productos -->
-      <div class="admin-lista" id="listaProductos"></div>
-
-    </main>
-
+  <!-- MENÚ MÓVIL -->
+  <div class="admin-menu-movil" id="adminMenuMovil">
+    <div class="admin-menu-movil__header">
+      <img src="https://pub-1a9e1895df724843a63ab4872f69867b.r2.dev/logo.png" alt="MYT Express" class="admin-menu-movil__logo">
+      <span class="admin-menu-movil__titulo">MYT Express Admin</span>
+      <button class="admin-menu-movil__cerrar" id="btnAdminCerrarMenu">✕</button>
+    </div>
+    <nav class="admin-menu-movil__nav">
+      <a href="panel.html" class="admin-menu-movil__link">📊 Dashboard</a>
+      <a href="productos.html" class="admin-menu-movil__link admin-menu-movil__link--activo">📦 Productos</a>
+      <a href="pedidos.html" class="admin-menu-movil__link">🛒 Pedidos</a>
+      <a href="../index.html" class="admin-menu-movil__link">🏪 Ver tienda</a>
+    </nav>
+    <div class="admin-menu-movil__footer">
+      <button class="admin-menu-movil__logout" id="btnLogoutMovil">🚪 Cerrar sesión</button>
+    </div>
   </div>
+  <div class="admin-header__overlay" id="adminOverlay"></div>
+
+  <!-- CONTENIDO -->
+  <main class="admin-contenido">
+
+    <div class="admin-contenido__header">
+      <div>
+        <h1 class="admin-contenido__titulo">Gestionar Productos</h1>
+        <p class="admin-contenido__subtitulo">Agrega, edita o elimina productos</p>
+      </div>
+      <button class="admin-contenido__btn-agregar" id="btnMostrarForm">+ Nuevo producto</button>
+    </div>
+
+    <!-- FORMULARIO -->
+    <form class="admin-form" id="formProducto" style="display: none;">
+      <input type="hidden" id="productoId">
+
+      <div class="admin-form__header">
+        <strong id="formTitulo">Nuevo producto</strong>
+        <button type="button" class="admin-form__cerrar" id="btnCerrarForm">✕</button>
+      </div>
+
+      <div class="admin-form__fila">
+        <div class="campo">
+          <label class="campo__label">Nombre *</label>
+          <input class="campo__input" type="text" id="nombre" placeholder="Ej: Cerveza Pilsen" required>
+        </div>
+        <div class="campo">
+          <label class="campo__label">Categoría *</label>
+          <input class="campo__input" type="text" id="categoria" placeholder="cervezas, vinos, destilados" required>
+        </div>
+      </div>
+
+      <div class="admin-form__fila">
+        <div class="campo">
+          <label class="campo__label">Precio (S/) *</label>
+          <input class="campo__input" type="number" id="precio" step="0.01" placeholder="25.00" required>
+        </div>
+        <div class="campo">
+          <label class="campo__label">Stock *</label>
+          <input class="campo__input" type="number" id="stock" placeholder="20" required>
+        </div>
+      </div>
+
+      <div class="campo">
+        <label class="campo__label">Imagen del producto</label>
+        
+        <div class="admin-imagen-upload">
+          <label class="admin-imagen-upload__btn">
+            📤 Subir imagen
+            <input type="file" id="imagenFile" accept="image/*" style="display: none;">
+          </label>
+          <span class="admin-imagen-upload__nombre" id="imagenNombre">Ningún archivo seleccionado</span>
+        </div>
+        
+        <div class="admin-imagen-preview" id="imagenPreview" style="display: none;">
+          <img id="imagenPreviewImg" src="" alt="Vista previa">
+        </div>
+        
+        <input type="hidden" id="imagen_url">
+      </div>
+
+      <div class="campo">
+        <label class="campo__label">Descripción</label>
+        <textarea class="campo__input" id="descripcion" rows="3" placeholder="Descripción corta del producto..."></textarea>
+      </div>
+
+      <div class="admin-form__acciones">
+        <button type="submit" class="admin-form__btn">💾 Guardar producto</button>
+        <button type="button" class="admin-form__btn-cancelar" id="btnCancelarForm">Cancelar</button>
+      </div>
+    </form>
+
+    <!-- BUSCADOR -->
+    <div class="admin-buscador">
+      <span>🔍</span>
+      <input type="text" id="adminBuscador" placeholder="Buscar producto...">
+    </div>
+
+    <!-- LISTA -->
+    <div class="admin-lista" id="listaProductos"></div>
+
+  </main>
 
   <!-- JS -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
