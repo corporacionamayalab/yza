@@ -28,9 +28,9 @@ document.addEventListener('DOMContentLoaded', async () => {
       return;
     }
 
-    // Renderizar
+    // Renderizar con modal
     destacadosGrid.innerHTML = productos.map((prod, index) => `
-      <div class="producto-destacado">
+      <div class="producto-destacado" onclick="abrirModalProducto(${JSON.stringify(prod).replace(/"/g, '&quot;')})" style="cursor: pointer;">
         ${index < 3 ? '<span class="producto-destacado__top">🔥 Top</span>' : ''}
         <img src="${prod.imagen_url || 'https://via.placeholder.com/400x300?text=MYT+Express'}" 
              alt="${prod.nombre}" 
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', async () => {
           <h3 class="producto-destacado__nombre">${prod.nombre}</h3>
           <span class="producto-destacado__precio">S/ ${parseFloat(prod.precio).toFixed(2)}</span>
           <button class="producto-destacado__btn ${prod.stock <= 0 ? 'producto-destacado__btn--agotado' : ''}" 
-                  onclick="agregarDestacado(${JSON.stringify(prod).replace(/"/g, '&quot;')})"
+                  onclick="event.stopPropagation(); agregarDestacado(${JSON.stringify(prod).replace(/"/g, '&quot;')})"
                   ${prod.stock <= 0 ? 'disabled' : ''}>
             ${prod.stock > 0 ? '🛒 Agregar' : 'Agotado'}
           </button>
@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     localStorage.setItem('carrito_myt', JSON.stringify(carrito));
     window.dispatchEvent(new Event('storage'));
-    alert('✅ Producto agregado');
+    mostrarToast('Producto agregado al carrito');
   };
 
   // ----- Cargar todo -----

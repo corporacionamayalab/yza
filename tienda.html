@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="css/tienda-filtros.css">
   <link rel="stylesheet" href="css/tienda-productos.css">
   <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/producto-modal.css">
 
 </head>
 <body>
@@ -36,8 +37,6 @@
         <ul class="header__menu">
           <li><a href="index.html" class="header__link">Inicio</a></li>
           <li><a href="tienda.html" class="header__link header__link--activo">Tienda</a></li>
-          <li><a href="#productos" class="header__link">Productos</a></li>
-          <li><a href="#filtros" class="header__link">Categorías</a></li>
         </ul>
       </nav>
 
@@ -78,8 +77,6 @@
         <ul class="menu-movil__lista">
           <li><a href="index.html" class="menu-movil__link">🏠 Inicio</a></li>
           <li><a href="tienda.html" class="menu-movil__link menu-movil__link--activo">🛒 Tienda</a></li>
-          <li><a href="#productos" class="menu-movil__link">📦 Productos</a></li>
-          <li><a href="#filtros" class="menu-movil__link">📂 Categorías</a></li>
         </ul>
       </nav>
       <div class="menu-movil__footer">
@@ -91,6 +88,76 @@
     <div class="header__overlay" id="headerOverlay"></div>
 
   </header>
+
+  <!-- ==================== MODAL PRODUCTO — MYT EXPRESS ==================== -->
+<div class="producto-modal" id="productoModal" style="display: none;">
+  <div class="producto-modal__overlay" id="modalOverlay"></div>
+
+  <div class="producto-modal__contenedor">
+
+    <!-- Botón cerrar -->
+    <button class="producto-modal__cerrar" id="btnCerrarModal">✕</button>
+
+    <!-- Imagen -->
+    <div class="producto-modal__imagen">
+      <img id="modalImagen" src="" alt="">
+      <span class="producto-modal__badge" id="modalBadge">🔥 Destacado</span>
+    </div>
+
+    <!-- Info -->
+    <div class="producto-modal__info">
+
+      <span class="producto-modal__categoria" id="modalCategoria"></span>
+      <h2 class="producto-modal__nombre" id="modalNombre"></h2>
+
+      <div class="producto-modal__precio-stock">
+        <span class="producto-modal__precio" id="modalPrecio"></span>
+        <span class="producto-modal__stock" id="modalStock"></span>
+      </div>
+
+      <div class="producto-modal__descripcion-box">
+        <h3>📋 Descripción</h3>
+        <p id="modalDescripcion"></p>
+      </div>
+
+      <div class="producto-modal__detalles">
+        <div class="detalle">
+          <span class="detalle__icono">✅</span>
+          <span>Producto verificado</span>
+        </div>
+        <div class="detalle">
+          <span class="detalle__icono">🚀</span>
+          <span>Delivery inmediato</span>
+        </div>
+        <div class="detalle">
+          <span class="detalle__icono">💳</span>
+          <span>Yape / Plin / Contra entrega</span>
+        </div>
+      </div>
+
+      <!-- Cantidad -->
+      <div class="producto-modal__cantidad">
+        <button class="cantidad-btn" id="btnMenos">−</button>
+        <span class="cantidad-numero" id="modalCantidad">1</span>
+        <button class="cantidad-btn" id="btnMas">+</button>
+      </div>
+
+      <!-- Botones -->
+      <div class="producto-modal__acciones">
+        <button class="producto-modal__btn producto-modal__btn--agregar" id="btnModalAgregar">
+          🛒 Agregar al carrito
+        </button>
+        <a href="carrito.html" class="producto-modal__btn producto-modal__btn--ver">
+          Ver carrito
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+
 
   <!-- ==================== HERO TIENDA — MYT EXPRESS ==================== -->
 <section class="tienda-hero" id="tienda-hero">
@@ -214,7 +281,6 @@
           <li><a href="index.html" class="footer__link">Inicio</a></li>
           <li><a href="tienda.html" class="footer__link">Tienda</a></li>
           <li><a href="carrito.html" class="footer__link">Carrito</a></li>
-          <li><a href="#como-comprar" class="footer__link">Cómo comprar</a></li>
         </ul>
       </div>
 
@@ -286,7 +352,8 @@
   </div>
 </footer>
 
-  
+  <!-- ==================== TOAST NOTIFICACIÓN — MYT EXPRESS ==================== -->
+
 
   <!-- ==================== SCRIPTS ==================== -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -300,6 +367,7 @@
     <script src="js/tienda-filtros.js"></script>
   <script src="js/tienda-productos.js"></script>
   <script src="js/footer.js"></script>
+  <script src="js/producto-modal.js"></script>
 
 </body>
 </html>

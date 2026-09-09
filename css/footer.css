@@ -233,13 +233,13 @@ button {
   font-size: 13px;
 }
 
-/* ===== RESPONSIVE ===== */
+/* ==================== RESPONSIVE ==================== */
 
 /* Tablet */
 @media (max-width: 900px) {
   .footer__grid {
     grid-template-columns: 1fr 1fr;
-    gap: 32px;
+    gap: 28px;
   }
 
   .footer__col {
@@ -248,54 +248,104 @@ button {
   }
 }
 
-/* Móvil */
+/* Móvil — Compacto */
 @media (max-width: 600px) {
   .footer {
-    padding: 40px 20px 20px;
+    padding: 32px 20px 20px;
   }
 
   .footer__grid {
-    grid-template-columns: 1fr;
-    gap: 32px;
-    text-align: center;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 32px;
   }
 
-  .footer__col {
+  .footer__col--marca {
+    grid-column: 1 / -1;
     align-items: center;
     text-align: center;
   }
 
-  .footer__titulo {
-    text-align: center;
+  .footer__logo {
+    justify-content: center;
   }
 
   .footer__descripcion {
     text-align: center;
+    max-width: 100%;
+    font-size: 13px;
+    margin-bottom: 14px;
   }
 
   .footer__social {
     justify-content: center;
   }
 
-  .footer__links {
-    align-items: center;
+  .footer__col {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .footer__logo-img {
+    width: 32px;
+    height: 32px;
+  }
+
+  .footer__logo-texto {
+    font-size: 18px;
+  }
+
+  .footer__social-link {
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+  }
+
+  .footer__titulo {
+    font-size: 13px;
+    margin-bottom: 12px;
+  }
+
+  .footer__link {
+    font-size: 13px;
   }
 
   .footer__pagos {
-    align-items: center;
+    gap: 8px;
   }
 
   .footer__pago-item {
-    justify-content: center;
+    gap: 8px;
+  }
+
+  .footer__pago-icono {
+    font-size: 18px;
+  }
+
+  .footer__pago-item strong {
+    font-size: 12px;
+  }
+
+  .footer__pago-item span {
+    font-size: 11px;
   }
 
   .footer__bottom {
     flex-direction: column;
+    align-items: center;
     text-align: center;
-    gap: 16px;
+    gap: 8px;
+  }
+
+  .footer__copy {
+    font-size: 12px;
   }
 
   .footer__legales {
     justify-content: center;
+  }
+
+  .footer__legal-link {
+    font-size: 12px;
   }
 }

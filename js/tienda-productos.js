@@ -33,12 +33,10 @@ document.addEventListener('DOMContentLoaded', async () => {
   function renderProductos() {
     let filtrados = [...productos];
 
-    // Filtrar por categoría
     if (categoriaActiva !== 'todos') {
       filtrados = filtrados.filter(p => p.categoria === categoriaActiva);
     }
 
-    // Filtrar por búsqueda
     if (busqueda) {
       const term = busqueda.toLowerCase();
       filtrados = filtrados.filter(p => 
@@ -47,12 +45,10 @@ document.addEventListener('DOMContentLoaded', async () => {
       );
     }
 
-    // Actualizar contador
     if (contadorProductos) {
       contadorProductos.textContent = `${filtrados.length} producto(s)`;
     }
 
-    // Mostrar vacío
     if (filtrados.length === 0) {
       gridProductos.innerHTML = '';
       tiendaVacio.style.display = 'block';
@@ -61,9 +57,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     tiendaVacio.style.display = 'none';
 
-    // Renderizar
+    // Renderizar con modal
     gridProductos.innerHTML = filtrados.map(producto => `
-      <div class="producto-card">
+      <div class="producto-card" onclick="abrirModalProducto(${JSON.stringify(producto).replace(/"/g, '&quot;')})" style="cursor: pointer;">
         <img src="${producto.imagen_url || 'https://via.placeholder.com/400x300?text=MYT+Express'}" 
              alt="${producto.nombre}" 
              class="producto-card__imagen">
@@ -73,7 +69,7 @@ document.addEventListener('DOMContentLoaded', async () => {
           <span class="producto-card__precio">S/ ${parseFloat(producto.precio).toFixed(2)}</span>
           <span class="producto-card__stock">${producto.stock > 0 ? `✅ ${producto.stock} disponibles` : '❌ Agotado'}</span>
           <button class="producto-card__btn ${producto.stock <= 0 ? 'producto-card__btn--agotado' : ''}" 
-                  onclick="agregarAlCarrito(${JSON.stringify(producto).replace(/"/g, '&quot;')})"
+                  onclick="event.stopPropagation(); agregarAlCarrito(${JSON.stringify(producto).replace(/"/g, '&quot;')})"
                   ${producto.stock <= 0 ? 'disabled' : ''}>
             ${producto.stock > 0 ? '🛒 Agregar' : 'Agotado'}
           </button>
@@ -101,7 +97,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     localStorage.setItem('carrito_myt', JSON.stringify(carrito));
     window.dispatchEvent(new Event('storage'));
-    alert('✅ Producto agregado');
+    mostrarToast('Producto agregado al carrito');
   };
 
   // ----- Escuchar filtros -----

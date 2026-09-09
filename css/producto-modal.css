@@ -1,0 +1,316 @@
+/* ==================== RESET BASE ==================== */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #FFFFFF;
+  color: #1A1A1A;
+  line-height: 1.6;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: inherit;
+}
+
+/* ==================== MODAL PRODUCTO — MYT EXPRESS ==================== */
+
+.producto-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.producto-modal__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 25, 41, 0.75);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.producto-modal__contenedor {
+  background: #FFFFFF;
+  border-radius: 24px;
+  max-width: 900px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.3);
+  animation: modalEntrada 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes modalEntrada {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.producto-modal__cerrar {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 38px;
+  height: 38px;
+  background: rgba(0, 0, 0, 0.5);
+  color: #FFFFFF;
+  border-radius: 50%;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 2;
+}
+
+.producto-modal__cerrar:hover {
+  background: #EF4444;
+  transform: rotate(90deg);
+}
+
+/* ===== IMAGEN ===== */
+.producto-modal__imagen {
+  background: #F8FAFC;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  position: relative;
+  min-height: 400px;
+}
+
+.producto-modal__imagen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.producto-modal__badge {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: #F59E0B;
+  color: #FFFFFF;
+  padding: 6px 14px;
+  border-radius: 50px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* ===== INFO ===== */
+.producto-modal__info {
+  padding: 40px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+.producto-modal__categoria {
+  font-size: 11px;
+  font-weight: 700;
+  color: #94A3B8;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.producto-modal__nombre {
+  font-family: 'Poppins', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #1A1A1A;
+}
+
+.producto-modal__precio-stock {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.producto-modal__precio {
+  font-family: 'Poppins', sans-serif;
+  font-size: 30px;
+  font-weight: 800;
+  color: #009D95;
+}
+
+.producto-modal__stock {
+  font-size: 13px;
+  color: #94A3B8;
+  background: #F1F5F9;
+  padding: 4px 12px;
+  border-radius: 50px;
+}
+
+/* ===== DESCRIPCIÓN ===== */
+.producto-modal__descripcion-box {
+  background: #F8FAFC;
+  border-radius: 12px;
+  padding: 14px 16px;
+}
+
+.producto-modal__descripcion-box h3 {
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.producto-modal__descripcion-box p {
+  font-size: 14px;
+  color: #64748B;
+}
+
+/* ===== DETALLES ===== */
+.producto-modal__detalles {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.detalle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: #475569;
+  font-weight: 500;
+}
+
+.detalle__icono {
+  font-size: 18px;
+}
+
+/* ===== CANTIDAD ===== */
+.producto-modal__cantidad {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 4px;
+}
+
+.cantidad-btn {
+  width: 40px;
+  height: 40px;
+  background: #F1F5F9;
+  border-radius: 10px;
+  font-size: 20px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.cantidad-btn:hover {
+  background: #E2E8F0;
+}
+
+.cantidad-numero {
+  font-size: 18px;
+  font-weight: 700;
+  width: 30px;
+  text-align: center;
+}
+
+/* ===== BOTONES ===== */
+.producto-modal__acciones {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.producto-modal__btn {
+  padding: 14px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 15px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.producto-modal__btn--agregar {
+  background: linear-gradient(135deg, #009D95, #006C66);
+  color: #FFFFFF;
+}
+
+.producto-modal__btn--agregar:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 157, 149, 0.35);
+}
+
+.producto-modal__btn--ver {
+  background: #F1F5F9;
+  color: #1A1A1A;
+}
+
+.producto-modal__btn--ver:hover {
+  background: #E2E8F0;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .producto-modal {
+    padding: 12px;
+  }
+
+  .producto-modal__contenedor {
+    grid-template-columns: 1fr;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  .producto-modal__imagen {
+    min-height: 220px;
+  }
+
+  .producto-modal__info {
+    padding: 24px 18px;
+    max-height: none;
+  }
+}
