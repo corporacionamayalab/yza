@@ -21,7 +21,7 @@
       "src": "https://pub-1a9e1895df724843a63ab4872f69867b.r2.dev/logo.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "maskable"
+      "purpose": "any maskable"
     }
   ]
 }
