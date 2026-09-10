@@ -46,34 +46,53 @@ document.addEventListener('DOMContentLoaded', () => {
     const carrito = JSON.parse(localStorage.getItem('carrito_myt') || '[]');
     const total = carrito.reduce((sum, item) => sum + (item.precio * item.cantidad), 0);
 
-    // Guardar en Supabase
-    const { data, error } = await window.supabaseClient
-      .from('pedidos')
-      .insert([{
-        cliente_nombre: nombre,
-        cliente_telefono: telefono,
-        direccion: direccion,
-        metodo_pago: metodoPago,
-        total: total,
-        items: JSON.stringify(carrito),
-        estado: 'pendiente'
-      }])
-      .select('id');
+    // Guardar con fetch directo
+    try {
+      const response = await fetch(`${SUPABASE_URL}/rest/v1/pedidos`, {
+        method: 'POST',
+        headers: {
+          'apikey': SUPABASE_ANON_KEY,
+          'Content-Type': 'application/json',
+          'Prefer': 'return=minimal'
+        },
+        body: JSON.stringify({
+          cliente_nombre: nombre,
+          cliente_telefono: telefono,
+          direccion: direccion,
+          metodo_pago: metodoPago,
+          total: total,
+          items: carrito,
+          estado: 'pendiente'
+        })
+      });
 
-    if (error) {
-      alert('❌ Error al guardar el pedido. Intenta de nuevo.');
+      const respuesta = await response.text();
+
+      console.log('STATUS:', response.status);
+      console.log('RESPUESTA:', respuesta);
+
+      if (!response.ok) {
+        alert('❌ Error al guardar el pedido. Intenta de nuevo.');
+        console.error(respuesta);
+        return;
+      }
+
+      // Pedido guardado correctamente
+      const pedidoId = 'pendiente';
+
+      // WhatsApp
+      enviarWhatsApp(nombre, telefono, direccion, metodoPago, total, carrito, pedidoId);
+
+      // Limpiar carrito
+      localStorage.removeItem('carrito_myt');
+
+      // Redirigir
+      window.location.href = `confirmacion.html?pedido=${pedidoId}`;
+
+    } catch (error) {
+      alert('❌ Error de conexión. Intenta de nuevo.');
       console.error(error);
-      return;
     }
-
-    // ----- Notificación WhatsApp -----
-    enviarWhatsApp(nombre, telefono, direccion, metodoPago, total, carrito, data[0].id);
-
-    // Limpiar carrito
-    localStorage.removeItem('carrito_myt');
-
-    // Redirigir a confirmación
-    window.location.href = `confirmacion.html?pedido=${data[0].id}`;
 
   });
 
@@ -82,12 +101,9 @@ document.addEventListener('DOMContentLoaded', () => {
 // ==================== NOTIFICACIÓN WHATSAPP ====================
 
 function enviarWhatsApp(nombre, telefono, direccion, metodoPago, total, carrito, pedidoId) {
-
-  // Número de WhatsApp del negocio
   const numeroNegocio = '51990571182';
 
-  // Construir mensaje
-  const itemsMensaje = carrito.map(item => 
+  const itemsMensaje = carrito.map(item =>
     `• ${item.cantidad}x ${item.nombre} — S/ ${(item.precio * item.cantidad).toFixed(2)}`
   ).join('\n');
 
@@ -105,10 +121,6 @@ ${itemsMensaje}
 💰 *Total: S/ ${total.toFixed(2)}*
   `.trim();
 
-  // Codificar mensaje para URL
   const mensajeCodificado = encodeURIComponent(mensaje);
-
-  // Abrir WhatsApp en nueva pestaña
   window.open(`https://wa.me/${numeroNegocio}?text=${mensajeCodificado}`, '_blank');
-
 }
