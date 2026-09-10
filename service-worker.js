@@ -47,7 +47,11 @@ const ARCHIVOS_CACHE = [
 self.addEventListener('install', (e) => {
   e.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
-      return cache.addAll(ARCHIVOS_CACHE);
+      return Promise.all(
+        ARCHIVOS_CACHE.map(url => 
+          cache.add(url).catch(err => console.log('Error al cachear:', url))
+        )
+      );
     })
   );
   self.skipWaiting();
@@ -67,6 +71,11 @@ self.addEventListener('activate', (e) => {
 
 // Fetch
 self.addEventListener('fetch', (e) => {
+  // Ignorar peticiones externas
+  if (!e.request.url.startsWith(self.location.origin)) {
+    return;
+  }
+
   e.respondWith(
     caches.match(e.request).then((response) => {
       return response || fetch(e.request).catch(() => {

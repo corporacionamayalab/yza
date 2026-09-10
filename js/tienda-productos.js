@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Renderizar con modal
     gridProductos.innerHTML = filtrados.map(producto => `
       <div class="producto-card" onclick="abrirModalProducto(${JSON.stringify(producto).replace(/"/g, '&quot;')})" style="cursor: pointer;">
-        <img src="${producto.imagen_url || 'https://via.placeholder.com/400x300?text=MYT+Express'}" 
+        <img src="${producto.imagen_url || 'https://pub-1a9e1895df724843a63ab4872f69867b.r2.dev/logo.png'}" 
              alt="${producto.nombre}" 
              class="producto-card__imagen">
         <div class="producto-card__info">

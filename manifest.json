@@ -12,16 +12,16 @@
   "dir": "ltr",
   "icons": [
     {
-      "src": "https://pub-1a9e1895df724843a63ab4872f69867b.r2.dev/favicon.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any maskable"
-    },
-    {
       "src": "https://pub-1a9e1895df724843a63ab4872f69867b.r2.dev/logo.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
+    },
+    {
+      "src": "https://pub-1a9e1895df724843a63ab4872f69867b.r2.dev/logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ]
 }
