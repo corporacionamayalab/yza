@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     destacadosGrid.innerHTML = productos.map((prod, index) => `
       <div class="producto-destacado" onclick="abrirModalProducto(${JSON.stringify(prod).replace(/"/g, '&quot;')})" style="cursor: pointer;">
         ${index < 3 ? '<span class="producto-destacado__top">🔥 Top</span>' : ''}
-        <img src="${prod.imagen_url || 'https://via.placeholder.com/400x300?text=MYT+Express'}" 
+        <img src="${prod.imagen_url || 'https://pub-1a9e1895df724843a63ab4872f69867b.r2.dev/logo.png'}" 
              alt="${prod.nombre}" 
              class="producto-destacado__imagen">
         <div class="producto-destacado__info">
