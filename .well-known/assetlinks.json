@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "io.github.corporacionamayalab.twa",
+      "sha256_cert_fingerprints": [
+        "9F:8C:7F:CB:CA:8C:11:0B:24:44:CB:23:E2:15:ED:3B:64:84:4D:7E:14:3E:52:DC:F4:B2:F4:60:03:C7:7D:F1"
+      ]
+    }
+  }
+]
