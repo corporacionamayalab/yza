@@ -46,39 +46,37 @@ document.addEventListener('DOMContentLoaded', () => {
     const carrito = JSON.parse(localStorage.getItem('carrito_myt') || '[]');
     const total = carrito.reduce((sum, item) => sum + (item.precio * item.cantidad), 0);
 
-    // Guardar con fetch directo
+    // Guardar con función RPC (devuelve el ID real)
     try {
-      const response = await fetch(`${SUPABASE_URL}/rest/v1/pedidos`, {
+      const response = await fetch(`${SUPABASE_URL}/rest/v1/rpc/crear_pedido`, {
         method: 'POST',
         headers: {
           'apikey': SUPABASE_ANON_KEY,
-          'Content-Type': 'application/json',
-          'Prefer': 'return=minimal'
+          'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          cliente_nombre: nombre,
-          cliente_telefono: telefono,
-          direccion: direccion,
-          metodo_pago: metodoPago,
-          total: total,
-          items: carrito,
-          estado: 'pendiente'
+          p_cliente_nombre: nombre,
+          p_cliente_telefono: telefono,
+          p_direccion: direccion,
+          p_metodo_pago: metodoPago,
+          p_total: total,
+          p_items: carrito
         })
       });
 
-      const respuesta = await response.text();
+      const data = await response.json();
 
       console.log('STATUS:', response.status);
-      console.log('RESPUESTA:', respuesta);
+      console.log('RESPUESTA:', data);
 
       if (!response.ok) {
         alert('❌ Error al guardar el pedido. Intenta de nuevo.');
-        console.error(respuesta);
+        console.error(data);
         return;
       }
 
-      // Pedido guardado correctamente
-      const pedidoId = 'pendiente';
+      // ID real del pedido
+      const pedidoId = data[0].id;
 
       // WhatsApp
       enviarWhatsApp(nombre, telefono, direccion, metodoPago, total, carrito, pedidoId);
